@@ -1,0 +1,245 @@
+/* ============================================================
+   Home — Hero (Exaggerated Minimalism) + listado (Swiss grid)
+   Las tarjetas de propiedad viven en components/ui/ui.css
+   ============================================================ */
+
+/* ---- Hero · bloque monumental con imagen arquitectónica ---- */
+.lgea-hero {
+    position: relative;
+    background-color: var(--color-graphite);
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+/* Overlay grafito para legibilidad + halo dorado tenue */
+.lgea-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(110% 90% at 88% 8%, rgba(201, 169, 97, 0.14), transparent 50%),
+        linear-gradient(100deg, rgba(13, 12, 11, 0.94) 0%, rgba(13, 12, 11, 0.80) 42%, rgba(13, 12, 11, 0.52) 100%),
+        linear-gradient(0deg, rgba(13, 12, 11, 0.88) 0%, rgba(13, 12, 11, 0.30) 45%);
+    pointer-events: none;
+}
+.lgea-hero__inner {
+    position: relative;
+    z-index: 1;
+    min-height: clamp(560px, 82vh, 840px);
+    padding-block: clamp(5rem, 3rem + 6vw, 8rem) clamp(3rem, 2rem + 3vw, 4.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+
+/* Eyebrow en contexto oscuro */
+.lgea-hero .eyebrow { color: var(--color-accent); }
+.lgea-hero .eyebrow::before { background: var(--color-accent); }
+
+/* Layout editorial: título grande a la izquierda, texto + CTA a la derecha */
+.lgea-hero__main {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(2rem, 1rem + 4vw, 5rem);
+    align-items: end;
+}
+
+.lgea-hero__title {
+    font-size: var(--fs-5xl);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    max-width: 14ch;
+    margin: 0;
+    color: #ffffff;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
+}
+.lgea-hero__title-accent {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent);
+}
+
+/* Columna derecha */
+.lgea-hero__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: var(--sp-6);
+    padding-bottom: var(--sp-2);
+}
+.lgea-hero__lead {
+    max-width: 40ch;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.86);
+    text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+}
+
+.lgea-hero__cta {
+    display: flex;
+    gap: var(--sp-4);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+/* Botón secundario sobre fondo oscuro */
+.lgea-hero .btn-secondary {
+    --btn-fg: #ffffff;
+    --btn-bd: rgba(255, 255, 255, 0.4);
+}
+.lgea-hero .btn-secondary::before { background: #ffffff; }
+.lgea-hero .btn-secondary:hover { color: var(--color-ink); border-color: #ffffff; }
+
+/* Métricas — hairlines, ritmo Swiss */
+.lgea-hero__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-10);
+    margin: 0;
+    padding-top: var(--sp-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    width: 100%;
+}
+.lgea-hero__stats > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    opacity: 0;
+    animation: stat-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.lgea-hero__stats > div:nth-child(1) { animation-delay: 0.15s; }
+.lgea-hero__stats > div:nth-child(2) { animation-delay: 0.35s; }
+.lgea-hero__stats > div:nth-child(3) { animation-delay: 0.55s; }
+@keyframes stat-rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+}
+.lgea-hero__stats dt {
+    order: 2;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255, 255, 255, 0.55);
+}
+.lgea-hero__stats dd {
+    order: 1;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: -0.01em;
+}
+
+/* ---- Listado ---- */
+.home-listado {
+    /* menos aire arriba (pega mejor al hero), respiro normal abajo */
+    padding-block: clamp(2rem, 1.25rem + 2.5vw, 3.25rem) var(--section-y);
+}
+.home-listado__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--sp-6);
+    flex-wrap: wrap;
+    margin-bottom: var(--sp-8);
+    padding-bottom: var(--sp-6);
+    border-bottom: 1px solid var(--color-border);
+}
+/* la cabecera de sección no se estira: bloque compacto y legible */
+.home-listado__head .section-header { flex: 1 1 320px; gap: var(--sp-3); }
+.home-listado__head .section-header__lede { max-width: 44ch; }
+
+.propiedades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--grid-gap);
+}
+
+/* ---- Paginación ---- */
+.home-paginacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-8);
+    margin-top: var(--sp-16);
+}
+.home-paginacion__estado {
+    font-size: var(--fs-sm);
+    color: var(--color-muted);
+    letter-spacing: 0.02em;
+}
+
+/* ---- Modal de filtros ---- */
+.modal-filtros-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: var(--sp-4);
+    backdrop-filter: blur(3px);
+    animation: overlay-in var(--transition);
+}
+@keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-filtros {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    max-width: 560px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+}
+.modal-filtros h3 { font-size: var(--fs-2xl); margin-bottom: var(--sp-8); }
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-8);
+}
+.filtros-grid .field span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-soft);
+}
+.filtros-grid__full { grid-column: 1 / -1; }
+
+.modal-filtros-botones {
+    display: flex;
+    gap: var(--sp-3);
+    justify-content: flex-end;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
+    .lgea-hero__main {
+        grid-template-columns: 1fr;
+        gap: var(--sp-8);
+        align-items: start;
+    }
+    .lgea-hero__aside {
+        align-items: flex-start;
+        text-align: left;
+    }
+    .lgea-hero__cta { justify-content: flex-start; }
+}
+
+@media (max-width: 768px) {
+    .propiedades-grid { grid-template-columns: 1fr; }
+    .lgea-hero__stats { gap: var(--sp-8); }
+}
+@media (max-width: 480px) {
+    .filtros-grid { grid-template-columns: 1fr; }
+    .filtros-grid__full { grid-column: 1; }
+    .lgea-hero__cta .btn { width: 100%; }
+    .home-paginacion { gap: var(--sp-4); }
+}

@@ -1,0 +1,49 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Envs (ignora los reales, pero mantiene los .env.example como plantilla)
+.env
+.env.*
+!.env.example
+!**/.env.example
+server/.env
+client/.env
+
+# Builds
+dist/
+build/
+.out/
+.vite/
+.next/
+
+# Uploads/local
+uploads/
+tmp/
+cache/
+
+# IDE/Sistema
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Claude Code / asistentes IA
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+.claude.json
+.cursor/
+.aider*
+
+# Yarn
+.yarn/*
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.yarn/releases
+.yarn/plugins

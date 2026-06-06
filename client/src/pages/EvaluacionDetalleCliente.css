@@ -1,0 +1,164 @@
+.evaluacion-container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a202c;
+}
+
+.back-button {
+    background-color: #4a5568;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #2d3748;
+}
+
+.vendedor-main-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: black;
+}
+
+h3, h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    color: #2c5282;
+    font-size: 1.25rem;
+}
+
+ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+ul li {
+    margin-bottom: 0.4rem;
+    color: #2d3748;
+    font-size: 0.95rem;
+}
+
+a {
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #2b6cb0;
+}
+
+.seccion-doble {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tabla-contenedor {
+    flex: 1;
+    min-width: 300px;
+}
+
+.tabla-simple {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9fafb;
+    font-size: 0.95rem;
+}
+
+.tabla-simple td {
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+    color: black;
+}
+
+.tabla-simple tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-simple tr:nth-child(even) {
+    background-color: #edf2f7;
+}
+
+.tabla-simple strong {
+    color: #2d3748;
+}
+
+.financiera {
+    background-color: #ebf8ff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #3182ce;
+    margin-bottom: 1rem;
+}
+
+.evaluacion-equifax {
+    background-color: #fff7ec;
+    padding: 1.5rem;
+    border-left: 4px solid #f6ad55;
+    border-radius: 12px;
+    margin-top: 2rem;
+    color: #4e3f2f;
+}
+
+.evaluacion-equifax h4 {
+    margin-bottom: 0.5rem;
+    color: #dd6b20;
+}
+
+.evaluacion-equifax a {
+    color: #c05621;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.evaluacion-equifax a:hover {
+    color: #9c4221;
+}
+
+.explicacion-final {
+    background-color: #f0fff4;
+    border-left: 4px solid #48bb78;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+}
+
+.explicacion-final p {
+    margin: 0;
+    color: #22543d;
+    font-size: 0.96rem;
+    line-height: 1.6;
+}
+
+
+
+/* Botón que se ve como link, para documentos firmados */
+.link-doc {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #2563eb;
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+}
+.link-doc:hover { color: #1d4ed8; }
+

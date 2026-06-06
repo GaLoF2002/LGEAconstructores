@@ -1,0 +1,142 @@
+/* ============================================================
+   Configuración de disponibilidad del vendedor — rediseño premium
+   ============================================================ */
+.agendamiento-vendedor-container {
+    max-width: 760px;
+    margin: var(--sp-8) auto;
+    padding: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow);
+}
+
+.disp-header { margin-bottom: var(--sp-8); }
+.disp-eyebrow {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--sp-2);
+}
+.disp-header h2 {
+    font-size: var(--fs-3xl);
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--sp-2);
+}
+.disp-sub { margin: 0; color: var(--color-muted); font-size: var(--fs-base); }
+
+/* ---- Formulario: campos alineados, etiqueta arriba, inputs grandes ---- */
+.disp-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+    align-items: end;
+    padding: var(--sp-6) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--sp-8);
+}
+.disp-campo { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.disp-campo label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+}
+.disp-campo select,
+.disp-campo input[type="time"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-lg);
+    font-family: inherit;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.disp-campo select:focus,
+.disp-campo input[type="time"]:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-soft);
+    background: var(--color-bg);
+}
+
+.boton-guardar {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: var(--sp-4) var(--sp-8);
+    background: var(--color-ink);
+    color: #fff;
+    border: 1px solid var(--color-ink);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.boton-guardar:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-ink); }
+
+/* ---- Disponibilidad registrada: tarjetas elegantes ---- */
+.disponibilidad-registrada h3 {
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-muted);
+    margin: 0 0 var(--sp-5);
+}
+.sin-disponibilidad {
+    color: var(--color-muted);
+    font-style: italic;
+    padding: var(--sp-6);
+    border: 1px dashed var(--color-border-strong);
+    text-align: center;
+}
+.lista-disponibilidad {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--sp-3);
+}
+.item-disponibilidad {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    padding: var(--sp-4) var(--sp-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+}
+.item-dia {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-weight: 600;
+    font-size: var(--fs-lg);
+    text-transform: capitalize;
+    color: var(--color-text);
+}
+.item-dia svg { color: var(--color-accent-dark); }
+.item-hora {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-base);
+    color: var(--color-text-soft);
+    font-variant-numeric: tabular-nums;
+}
+.item-hora svg { color: var(--color-muted); }
+
+/* Adaptación dentro del dashboard del vendedor */
+.vendedor-main-content .vendedor-agendamiento-section { padding: var(--sp-4); }
+
+@media (max-width: 640px) {
+    .disp-form { grid-template-columns: 1fr; }
+    .boton-guardar { width: 100%; justify-self: stretch; text-align: center; }
+}

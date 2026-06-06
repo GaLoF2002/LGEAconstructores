@@ -1,0 +1,9 @@
+/* App.css — reset del scaffolding default de Vite.
+   Los estilos reales viven en index.css (design tokens) y los CSS por componente.
+*/
+#root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}

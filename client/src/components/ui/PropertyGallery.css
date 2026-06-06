@@ -1,0 +1,83 @@
+/* ============================================================
+   PropertyGallery — galería de detalle (imagen grande + miniaturas)
+   ============================================================ */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-10);
+}
+
+.gallery__main {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+}
+.gallery__main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    background: rgba(10, 10, 10, 0.5);
+    color: #fff;
+    font-size: var(--fs-2xl);
+    cursor: pointer;
+    transition: background var(--transition);
+}
+.gallery__main:hover .gallery__nav { background: rgba(10, 10, 10, 0.7); }
+.gallery__nav:hover { background: var(--color-ink); }
+.gallery__nav--prev { left: var(--sp-4); }
+.gallery__nav--next { right: var(--sp-4); }
+
+.gallery__counter {
+    position: absolute;
+    right: var(--sp-4);
+    bottom: var(--sp-4);
+    padding: var(--sp-1) var(--sp-3);
+    background: rgba(10, 10, 10, 0.6);
+    color: #fff;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+}
+
+.gallery__thumbs {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(72px, 1fr);
+    gap: var(--sp-2);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: var(--sp-1);
+}
+.gallery__thumb {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    opacity: 0.6;
+    transition: opacity var(--transition), border-color var(--transition);
+}
+.gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery__thumb:hover { opacity: 0.9; }
+.gallery__thumb.is-active {
+    opacity: 1;
+    border-color: var(--color-accent);
+    box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+@media (max-width: 760px) {
+    .gallery__main { aspect-ratio: 4 / 3; }
+    .gallery__nav { width: 38px; height: 38px; font-size: var(--fs-lg); }
+}

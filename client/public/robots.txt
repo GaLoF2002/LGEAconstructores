@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /vendedor
+Disallow: /cliente
+Disallow: /perfil
+Disallow: /propiedades
+Disallow: /reset-password
+
+Sitemap: https://www.lgeaconstructores.com/sitemap.xml

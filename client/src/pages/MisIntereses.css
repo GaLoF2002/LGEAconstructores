@@ -1,0 +1,57 @@
+.mis-intereses-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+}
+
+.mis-intereses-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding-bottom: var(--sp-5);
+    border-bottom: 1px solid var(--color-border);
+}
+.mis-intereses-eyebrow {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-accent-dark);
+}
+.mis-intereses-titulo {
+    font-size: var(--fs-3xl);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+/* El grid reutiliza .propiedades-grid del dashboard (mismas tarjetas que el home). */
+
+.mis-intereses-vacio {
+    color: var(--color-muted);
+    padding: var(--sp-8) 0;
+}
+
+.mis-intereses-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-4);
+    text-align: center;
+    padding: var(--sp-16) var(--sp-6);
+    border: 1px dashed var(--color-border-strong);
+    background: var(--color-bg);
+}
+.mis-intereses-empty svg { font-size: 2.5rem; color: var(--color-accent); }
+.mis-intereses-empty p { margin: 0; color: var(--color-text-soft); font-size: var(--fs-lg); }
+.mis-intereses-empty button {
+    padding: var(--sp-3) var(--sp-6);
+    background: var(--color-ink);
+    color: #fff;
+    border: 1px solid var(--color-ink);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+}
+.mis-intereses-empty button:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-ink); }

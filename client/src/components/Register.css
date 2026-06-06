@@ -1,0 +1,77 @@
+/* Register: la maqueta split la aporta AuthLayout.
+   Aquí sólo viven el checkbox de políticas y el modal. */
+
+.politicas-container {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: var(--color-text-soft);
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+    cursor: pointer;
+}
+.politicas-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+.link-text {
+    color: var(--color-accent-dark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+.link-text:hover { color: var(--color-ink); }
+
+.field__error {
+    font-size: var(--fs-xs);
+    color: #dc2626;
+    margin-top: var(--sp-1);
+    display: block;
+}
+.field__hint {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+.auth__error {
+    font-size: var(--fs-sm);
+    color: #dc2626;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius-sm);
+}
+
+/* Modal de políticas */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: var(--sp-4);
+    backdrop-filter: blur(3px);
+}
+.modal-content {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    max-width: 560px;
+    width: 100%;
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    box-shadow: var(--shadow-lg);
+}
+.modal-content h3 {
+    font-size: var(--fs-2xl);
+    margin-bottom: var(--sp-5);
+}
+.modal-content p {
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+    margin-bottom: var(--sp-4);
+}
+.modal-content .btn { margin-top: var(--sp-4); }

@@ -1,0 +1,36 @@
+# ===== Node =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# ===== Logs =====
+logs
+*.log
+
+# ===== Uploads / Archivos locales =====
+uploads/
+tmp/
+cache/
+
+# ===== System =====
+.DS_Store
+Thumbs.db
+
+# ===== IDE =====
+.vscode/
+.idea/
+
+# ===== Yarn =====
+.yarn/*
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.yarn/releases
+.yarn/plugins

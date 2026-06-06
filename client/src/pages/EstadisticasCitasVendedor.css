@@ -1,0 +1,107 @@
+/* EstadisticasCitasVendedor.css */
+
+.estadisticas-citas-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.estadisticas-citas-container h2,
+.estadisticas-citas-container h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cita-item {
+    background-color: #fff;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 6px solid #4CAF50;
+    border-radius: 12px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cita-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cita-item p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #2d3748;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1976D2;
+}
+
+@media (max-width: 380px) {
+    .estadisticas-citas-container {
+        max-width: 100%; /* Take full width */
+        margin-right: 20px; /* Remove auto margin */
+        padding: 1rem; /* Reduced padding */
+        border-radius: 0; /* Remove border-radius for full-width look */
+        box-shadow: none; /* Remove shadow for a lighter feel */
+    }
+
+    .estadisticas-citas-container h2,
+    .estadisticas-citas-container h3 {
+        font-size: 1.5rem; /* Smaller heading */
+        margin-bottom: 0.8rem;
+    }
+
+    .cita-item {
+        padding: 1rem; /* Reduced padding for each item */
+        margin-bottom: 0.8rem;
+        border-left-width: 4px; /* Thinner left border */
+        border-radius: 8px; /* Slightly smaller border radius */
+    }
+
+    .cita-item:hover {
+        transform: none; /* Remove scale on hover for mobile to prevent layout shifts */
+        box-shadow: none; /* Remove hover shadow for simplicity */
+    }
+
+    .cita-item p {
+        margin: 0.3rem 0; /* Reduced vertical margin for paragraphs */
+        font-size: 0.9rem; /* Smaller font for text */
+    }
+
+    .cita-item p strong {
+        font-size: 0.95rem; /* Slightly larger for strong text */
+    }
+
+    .cita-item button {
+        width: 100%; /* Make button full width */
+        padding: 0.8rem 1rem; /* Larger padding for touch */
+        font-size: 0.9rem; /* Smaller font size */
+        margin-top: 0.8rem; /* Adjust margin top */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    button:hover {
+        background-color: #2d3748; /* Keep original hover color or adjust if needed */
+    }
+}

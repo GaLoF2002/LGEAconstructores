@@ -1,0 +1,193 @@
+    .mis-citas-cliente {
+        padding: 20px;
+        font-family: sans-serif;
+        background-color: #f4f6f8;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding-bottom: 150px;
+        position: relative;
+    }
+
+    .mis-citas-cliente h2 {
+        color: #333;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+
+    .cita-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 30px; /* Aumentado para más espacio interno */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cita-card p {
+        margin-bottom: 8px;
+        color: #555;
+    }
+
+    .cita-card strong {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .cita-card button {
+        background-color: #2c3e50; /* Un azul oscuro corporativo */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 15px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+        margin-top: 10px; /* Espacio arriba del botón */
+    }
+
+    .cita-card button:hover {
+        background-color: #1a242f; /* Un poco más oscuro al pasar el mouse */
+    }
+
+    .reagendar-panel {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        grid-column: 1 / -1;
+        margin-bottom: 60px; /* Espacio para que no se solape con el footer */
+    }
+
+    .reagendar-panel h3 {
+        color: #333;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .reagendar-panel h4 {
+        color: #555;
+        margin-top: 20px; /* Más espacio arriba de cada día */
+        margin-bottom: 10px;
+    }
+
+    .dia-container { /* Contenedor para cada día para mejor estructura si es necesario */
+        margin-bottom: 15px; /* Espacio entre los contenedores de día */
+    }
+
+    .horas-disponibles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Ajusta el tamaño mínimo de los botones de hora */
+        gap: 10px; /* Espacio entre botones de hora */
+        margin-bottom: 0; /* Quitado margen inferior para que el contenedor del día maneje el espacio */
+    }
+
+    .hora-boton {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Añadida transición para border-color */
+    }
+
+    .hora-boton.disponible {
+        background-color: #e9ecef; /* Gris claro para disponible */
+        color: #333;
+    }
+
+    .hora-boton.disponible:hover {
+        background-color: #007bff; /* Azul primario al pasar el mouse */
+        color: white;
+        border-color: #0056b3; /* Borde más oscuro al pasar el mouse */
+    }
+
+    /* Nuevo estilo para la hora seleccionada */
+    .hora-boton.seleccionada {
+        background-color: #28a745; /* Verde para la hora seleccionada */
+        color: white;
+        border-color: #1e7e34; /* Borde verde más oscuro */
+        font-weight: bold; /* Hacer el texto más visible */
+    }
+
+    .hora-boton.ocupado {
+        background-color: #f8d7da; /* Rojo claro para ocupado */
+        color: #721c24; /* Texto oscuro para contraste */
+        cursor: not-allowed;
+        border-color: #f5c6cb;
+    }
+
+    /* Estilo para el botón general de confirmar reagendamiento */
+    .confirmar-reagendamiento-btn {
+        background-color: #28a745; /* Verde */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 12px 20px; /* Botón más grande */
+        cursor: pointer;
+        font-size: 16px; /* Texto más grande */
+        transition: background-color 0.3s ease;
+        margin-top: 25px; /* Espacio considerable arriba del botón */
+        display: block; /* Para que ocupe el ancho si es necesario o centrarlo */
+        width: fit-content; /* Ajustar ancho al contenido */
+        margin-left: auto; /* Centrar el botón si es display block */
+        margin-right: auto; /* Centrar el botón si es display block */
+    }
+
+    .confirmar-reagendamiento-btn:hover {
+        background-color: #1e7e34; /* Verde más oscuro al pasar el mouse */
+    }
+
+    /* Contenedor para todos los días en el panel de reagendamiento */
+    .dias-reagendar-wrapper {
+        display: flex;
+        flex-wrap: nowrap; /* Si quieres evitar que bajen a la siguiente línea */
+        gap: 20px;
+        overflow-x: auto; /* Habilita scroll horizontal si hay muchos días */
+        padding-bottom: 10px;
+    }
+
+    /* Cada día (día-container) ahora tendrá un ancho fijo o mínimo */
+    .dia-container {
+        flex: 0 0 auto; /* No se expande ni se encoge */
+        width: 200px; /* Puedes ajustar esto a tu preferencia */
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 6px;
+        background-color: #fafafa;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .reagendar-scroll-wrapper {
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+
+    .dias-reagendar-wrapper {
+        display: flex;
+        gap: 20px;
+        flex-wrap: nowrap;
+    }
+
+    /* Mantener tamaño fijo de cada tarjeta */
+    .dia-container {
+        flex: 0 0 auto;
+        width: 200px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 6px;
+        background-color: #fafafa;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }

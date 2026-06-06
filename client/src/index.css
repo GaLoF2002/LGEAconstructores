@@ -1,0 +1,395 @@
+/* ============================================================
+   LGEA Constructores — Design System
+   Dirección de arte: Swiss Modernism 2.0 + Exaggerated Minimalism
+   Vibe: elegante · monumental · sólido · alto lujo
+   Paleta: tinta / blanco / grises arquitectónicos + un único acento dorado
+   Tipografía: Playfair Display (display serif) + Inter (sans)
+   ============================================================ */
+
+:root {
+    /* ---- Color · superficies neutras (stone / arquitectónico) ---- */
+    --color-bg: #ffffff;
+    --color-surface: #faf9f7;        /* stone 50 — cálido, no clínico */
+    --color-surface-alt: #f3f1ee;    /* stone 100 */
+    --color-ink: #0a0a0a;            /* tinta */
+    --color-text: #0a0a0a;
+    --color-text-soft: #3a3937;      /* gris grafito (legible) */
+    --color-muted: #6f6b66;          /* stone 500 — ≥4.5:1 sobre blanco */
+    --color-border: #e7e4df;         /* hairline */
+    --color-border-strong: #cfcac3;
+
+    /* Grises arquitectónicos para secciones sólidas */
+    --color-graphite: #161514;
+    --color-graphite-soft: #2a2826;
+    --color-concrete: #8c867d;
+
+    /* ---- Acento único (dorado sobrio) ---- */
+    --color-accent: #c9a961;
+    --color-accent-dark: #a8884a;
+    --color-accent-soft: #f4ecd9;
+
+    /* ---- Estado ---- */
+    --color-danger: #a3261d;
+    --color-success: #2f6b3a;
+
+    /* ---- Tipografía ---- */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+    --font-display: "Playfair Display", "Iowan Old Style", Georgia,
+                    "Times New Roman", serif;
+
+    /* Escala tipográfica monumental y fluida (clamp) */
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.125rem;
+    --fs-xl: 1.25rem;
+    --fs-2xl: 1.5rem;
+    --fs-3xl: clamp(1.75rem, 1.2rem + 2.4vw, 2.5rem);
+    --fs-4xl: clamp(2.25rem, 1.4rem + 4vw, 3.75rem);
+    --fs-5xl: clamp(2.75rem, 1.4rem + 6.5vw, 5rem);
+    --fs-display: clamp(3rem, 0.5rem + 11vw, 9rem);   /* hero exagerado */
+
+    /* ---- Espaciado · base 8px, escala generosa ---- */
+    --sp-1: 0.25rem;
+    --sp-2: 0.5rem;
+    --sp-3: 0.75rem;
+    --sp-4: 1rem;
+    --sp-5: 1.25rem;
+    --sp-6: 1.5rem;
+    --sp-8: 2rem;
+    --sp-10: 2.5rem;
+    --sp-12: 3rem;
+    --sp-16: 4rem;
+    --sp-20: 5rem;
+    --sp-24: 6rem;
+    --sp-32: 8rem;     /* whitespace agresivo */
+    --sp-40: 10rem;
+
+    /* Ritmo vertical de sección (fluido) */
+    --section-y: clamp(4.5rem, 2.5rem + 8vw, 9rem);
+
+    /* ---- Bordes · estética Swiss (cantos vivos) ---- */
+    --radius-sm: 0px;
+    --radius: 0px;
+    --radius-lg: 0px;
+
+    /* Sombras mínimas (el sistema confía en hairlines, no en sombras) */
+    --shadow-sm: 0 1px 2px rgba(10, 10, 10, 0.04);
+    --shadow: 0 10px 30px -12px rgba(10, 10, 10, 0.12);
+    --shadow-lg: 0 30px 60px -20px rgba(10, 10, 10, 0.18);
+
+    /* ---- Layout ---- */
+    --container: 1240px;
+    --container-narrow: 760px;
+    --header-h: 68px;
+    --grid-cols: 12;
+    --grid-gap: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+
+    /* ---- Movimiento ---- */
+    --transition: 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-slow: 480ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    color-scheme: light only;
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "calt";
+}
+
+/* ============================================================ Reset */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+}
+
+img, video, svg { max-width: 100%; display: block; }
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+a:hover { color: var(--color-accent-dark); }
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.2;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    color: inherit;
+}
+
+input, select, textarea {
+    font-family: inherit;
+    font-size: var(--fs-base);
+    color: var(--color-text);
+}
+
+/* ---- Tipografía: serif elegante para títulos grandes ---- */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.08;
+    font-weight: 600;
+}
+h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+}
+h1 { font-size: var(--fs-4xl); line-height: 1.04; }
+h2 { font-size: var(--fs-3xl); }
+h3 { font-size: var(--fs-2xl); }
+/* h4–h6: sans, para sub-jerarquía y UI */
+h4, h5, h6 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.005em;
+}
+h4 { font-size: var(--fs-xl); font-weight: 600; }
+h5 { font-size: var(--fs-lg); font-weight: 600; }
+h6 { font-size: var(--fs-base); font-weight: 600; }
+
+p { margin: 0 0 var(--sp-4) 0; color: var(--color-text-soft); }
+
+::selection { background: var(--color-ink); color: var(--color-bg); }
+
+/* ============================================================ Utilidades de layout */
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--sp-6);
+}
+.container-narrow {
+    width: 100%;
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+    padding: 0 var(--sp-6);
+}
+
+/* Página completa con footer pegado al fondo */
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+}
+
+/* Ritmo vertical de sección (whitespace generoso) */
+.section { padding-block: var(--section-y); }
+.section--tight { padding-block: calc(var(--section-y) * 0.6); }
+
+/* Grid Swiss de 12 columnas */
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: var(--grid-gap);
+}
+
+/* Longitud de línea legible (65–75 car.) */
+.measure { max-width: 68ch; }
+
+/* ---- Eyebrow / kicker: etiqueta superior con regla ---- */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3);
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-accent-dark);
+}
+.eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--color-accent);
+}
+.eyebrow--center::before { display: none; }
+
+/* Regla / divisor hairline */
+.rule {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: 0;
+}
+
+/* Texto introductorio destacado */
+.lede {
+    font-size: var(--fs-lg);
+    line-height: 1.7;
+    color: var(--color-muted);
+}
+
+/* Título de sección monumental */
+.display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-display);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+}
+
+/* ============================================================ Botones */
+.btn {
+    --btn-bg: var(--color-ink);
+    --btn-fg: var(--color-bg);
+    --btn-bd: var(--color-ink);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    padding: var(--sp-4) var(--sp-8);
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid var(--btn-bd);
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    isolation: isolate;
+    transition: color var(--transition), border-color var(--transition),
+                background var(--transition);
+}
+/* relleno deslizante elegante (sin layout shift) */
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-bg);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform var(--transition);
+}
+.btn:hover { color: var(--color-ink); border-color: var(--color-ink); }
+.btn:hover::before { transform: scaleY(1); }
+
+.btn-secondary {
+    --btn-bg: transparent;
+    --btn-fg: var(--color-ink);
+    --btn-bd: var(--color-border-strong);
+}
+.btn-secondary::before { background: var(--color-ink); transform-origin: bottom; }
+.btn-secondary:hover { color: var(--color-bg); border-color: var(--color-ink); }
+
+.btn-accent {
+    --btn-bg: var(--color-accent);
+    --btn-fg: var(--color-ink);
+    --btn-bd: var(--color-accent);
+}
+.btn-accent::before { background: var(--color-ink); }
+.btn-accent:hover { color: var(--color-bg); border-color: var(--color-ink); }
+
+.btn-lg { padding: var(--sp-5) var(--sp-10); font-size: var(--fs-sm); }
+.btn[disabled], .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn[disabled]::before { display: none; }
+
+/* ============================================================ Formularios */
+.field { display: flex; flex-direction: column; gap: var(--sp-2); }
+.label, label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-soft);
+}
+
+.input, input[type="text"], input[type="email"], input[type="password"],
+input[type="tel"], input[type="number"], input[type="date"], input[type="time"],
+input[type="search"], select, textarea {
+    width: 100%;
+    padding: var(--sp-4);
+    border: 1px solid var(--color-border-strong);
+    background: var(--color-bg);
+    border-radius: var(--radius);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+.input:focus, input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-ink);
+    box-shadow: inset 0 -2px 0 0 var(--color-accent);
+}
+input::placeholder, textarea::placeholder { color: var(--color-muted); }
+input[type="checkbox"], input[type="radio"], input[type="range"], progress {
+    accent-color: var(--color-accent);
+}
+
+/* Cuando el input está dentro de <button>, no heredar */
+button .input { all: unset; }
+
+/* ============================================================ Responsive helpers */
+@media (max-width: 768px) {
+    :root { --header-h: 58px; }
+    .container, .container-narrow { padding: 0 var(--sp-4); }
+    .grid-12 { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .grid-12 { grid-template-columns: 1fr; }
+}
+
+/* Scrollbar discreta */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-concrete); }
+
+/* Focus visible accesible */
+:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+}
+
+/* Fallback de carga de rutas (Suspense) */
+.route-fallback {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-4);
+}
+.route-fallback__spinner {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--color-border-strong);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: route-spin 0.8s linear infinite;
+}
+.route-fallback__text {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-muted);
+}
+@keyframes route-spin { to { transform: rotate(360deg); } }
+
+/* Respeto a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}

@@ -1,0 +1,143 @@
+/* GestionarCitasVendedor.css */
+.gestionar-citas-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-seccion {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold; /* Añadimos esta línea para poner el texto en negrita */
+}
+
+.sin-citas {
+    color: #777;
+    font-style: italic;
+}
+
+.lista-citas {
+    list-style: none;
+    padding: 0;
+}
+
+.item-cita {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-cita {
+    flex-grow: 1;
+}
+
+.fecha-cita {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #555;
+}
+
+.hora-cita {
+    color: #777;
+}
+
+.detalle-cita {
+    flex-grow: 2;
+    margin-left: 20px;
+    color: black;
+}
+
+.propiedad-cita {
+    font-weight: bold;
+    color: #333;
+}
+
+.cliente-cita {
+    font-style: italic;
+}
+
+.acciones-cita {
+    display: flex;
+    gap: 10px;
+}
+
+.boton-aceptar,
+.boton-rechazar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-rechazar {
+    background-color: #dc3545;
+}
+
+.boton-aceptar:hover {
+    background-color: #1e7e34;
+}
+
+.boton-rechazar:hover {
+    background-color: #c82333;
+}
+
+.calendario-semanal {
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.dia-semana {
+    margin-bottom: 15px;
+}
+
+.dia-semana strong {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.horas-disponibles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.hora-disponible {
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.hora-disponible.libre {
+    background-color: #e6ffe6;
+    color: #28a745;
+}
+
+.hora-disponible.ocupado {
+    background-color: #ffe6e6;
+    color: #dc3545;
+}
+
+/* Adaptación para el dashboard */
+.vendedor-main-content .vendedor-citas-section {
+    padding: 20px; /* Asegura que haya espacio alrededor del contenido */
+}
+
+.cita-pendiente-item strong {
+    color: black;
+    margin-right: 20px;
+}

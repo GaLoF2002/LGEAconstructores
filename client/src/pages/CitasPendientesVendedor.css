@@ -1,0 +1,160 @@
+/* ============================================================
+   Citas pendientes + calendario semanal — rediseño premium
+   ============================================================ */
+.vendedor-citas-pendientes-section {
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.citas-pend-header { margin-bottom: var(--sp-6); }
+.citas-pend-header--cal { margin-top: var(--sp-12); }
+.citas-pend-eyebrow {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--sp-2);
+}
+.citas-pend-header h2 {
+    font-size: var(--fs-2xl);
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+.citas-pend-vacio {
+    color: var(--color-muted);
+    padding: var(--sp-6);
+    border: 1px dashed var(--color-border-strong);
+    text-align: center;
+}
+
+/* ---- Tarjetas de citas pendientes ---- */
+.citas-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--sp-5);
+    margin-bottom: var(--sp-6);
+}
+.cita-pendiente-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    padding: var(--sp-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+}
+.cita-badge {
+    align-self: flex-start;
+    padding: 2px var(--sp-3);
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.cita-prop {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+.cita-datos { margin: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.cita-datos > div { display: flex; flex-direction: column; gap: 2px; }
+.cita-datos dt {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+}
+.cita-datos dd { margin: 0; font-size: var(--fs-sm); color: var(--color-text); }
+
+.citas-botones { display: flex; gap: var(--sp-3); margin-top: var(--sp-2); }
+.citas-botones button {
+    flex: 1;
+    padding: var(--sp-3);
+    border: 1px solid transparent;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.btn-aceptar { background: var(--color-ink); color: #fff; border-color: var(--color-ink); }
+.btn-aceptar:hover { background: var(--color-success); border-color: var(--color-success); }
+.btn-rechazar { background: transparent; color: var(--color-text); border-color: var(--color-border-strong); }
+.btn-rechazar:hover { background: var(--color-danger); border-color: var(--color-danger); color: #fff; }
+
+/* ---- Calendario semanal ---- */
+.cal-wrap { overflow-x: auto; }
+.cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-sm);
+    min-width: 720px;
+}
+.cal-table th,
+.cal-table td {
+    border: 1px solid var(--color-border);
+    padding: var(--sp-2);
+    text-align: center;
+    vertical-align: middle;
+}
+.cal-dia {
+    background: var(--color-graphite);
+    color: #fff;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    padding: var(--sp-3) var(--sp-2);
+}
+.cal-corner { background: var(--color-graphite); border-color: var(--color-graphite); }
+.cal-hora {
+    background: var(--color-surface);
+    color: var(--color-muted);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    width: 64px;
+}
+.cal-cell { background: var(--color-bg); color: var(--color-text-soft); font-size: var(--fs-xs); height: 38px; }
+
+/* Estados (colores claros y coherentes) */
+.cal-cell--libre {
+    background: rgba(47, 107, 58, 0.08);
+    color: var(--color-success);
+    font-weight: 600;
+}
+.cal-cell--pendiente {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-weight: 600;
+}
+.cal-cell--ocupada {
+    background: var(--color-graphite-soft);
+    color: #fff;
+    font-weight: 600;
+}
+
+.cal-leyenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-5);
+    margin-top: var(--sp-4);
+    font-size: var(--fs-sm);
+    color: var(--color-text-soft);
+}
+.cal-leyenda span { display: inline-flex; align-items: center; gap: var(--sp-2); }
+.cal-dot { width: 12px; height: 12px; display: inline-block; flex-shrink: 0; }
+.cal-dot--libre { background: var(--color-success); }
+.cal-dot--pendiente { background: var(--color-accent); }
+.cal-dot--ocupada { background: var(--color-graphite); }
+
+@media (max-width: 640px) {
+    .citas-grid-container { grid-template-columns: 1fr; }
+}

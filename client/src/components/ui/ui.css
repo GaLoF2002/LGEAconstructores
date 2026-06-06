@@ -1,0 +1,358 @@
+/* ============================================================
+   Kit de UI — estilos compartidos de componentes reutilizables
+   (importado una sola vez en main.jsx)
+   ============================================================ */
+
+/* ---- SectionHeader ---- */
+.section-header { display: flex; flex-direction: column; gap: var(--sp-5); }
+.section-header--center {
+    align-items: center;
+    text-align: center;
+    margin-inline: auto;
+}
+.section-header__title { font-size: var(--fs-3xl); max-width: 20ch; }
+.section-header__lede { margin: 0; }
+.section-header--center .section-header__lede { margin-inline: auto; }
+
+/* ============================================================
+   PropertyCard — tarjeta editorial, cantos vivos, hairline
+   ============================================================ */
+.property-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: border-color var(--transition), box-shadow var(--transition),
+                transform var(--transition);
+}
+.property-card:hover {
+    border-color: var(--color-ink);
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+}
+.property-card:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.property-card__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-surface-alt);
+}
+
+/* Carrusel: track horizontal que se desplaza con transform */
+.property-card__track {
+    display: flex;
+    height: 100%;
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.property-card__track img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.property-card__placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--color-muted);
+    font-size: var(--fs-sm);
+    letter-spacing: 0.04em;
+}
+
+/* Flechas del carrusel */
+.property-card__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(10, 10, 10, 0.55);
+    color: #fff;
+    font-size: var(--fs-lg);
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity var(--transition), background var(--transition);
+}
+.property-card:hover .property-card__nav,
+.property-card:focus-within .property-card__nav { opacity: 1; }
+.property-card__nav:hover { background: var(--color-ink); }
+.property-card__nav--prev { left: var(--sp-2); }
+.property-card__nav--next { right: var(--sp-2); }
+
+/* Indicadores (dots) */
+.property-card__dots {
+    position: absolute;
+    bottom: var(--sp-3);
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-2);
+}
+.property-card__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.25);
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+.property-card__dot.is-active {
+    background: var(--color-accent);
+    transform: scale(1.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .property-card__track { transition: none; }
+}
+
+.property-card__tag {
+    position: absolute;
+    top: var(--sp-4);
+    left: var(--sp-4);
+    padding: var(--sp-2) var(--sp-3);
+    background: var(--color-ink);
+    color: var(--color-accent);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.property-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    padding: var(--sp-6);
+    flex: 1;
+}
+
+.property-card__title {
+    font-size: var(--fs-xl);
+    line-height: 1.2;
+    margin: 0;
+    transition: color var(--transition);
+}
+.property-card:hover .property-card__title { color: var(--color-accent-dark); }
+
+.property-card__location {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--fs-sm);
+}
+.property-card__location svg { color: var(--color-accent-dark); flex-shrink: 0; }
+
+.property-card__features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-3) var(--sp-4);
+    margin: var(--sp-2) 0 0;
+    padding: var(--sp-4) 0 0;
+    border-top: 1px solid var(--color-border);
+}
+.property-card__features > div {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    min-width: 0;                 /* permite que el contenido se ajuste y no desborde */
+}
+.property-card__features dt {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    flex-shrink: 0;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+}
+.property-card__features dt svg { font-size: var(--fs-lg); color: var(--color-accent-dark); }
+.property-card__features dd {
+    margin: 0;
+    min-width: 0;
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--color-text);
+    overflow-wrap: anywhere;      /* números largos hacen wrap en vez de salirse */
+}
+
+.property-card__footer {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    margin-top: auto;
+    padding-top: var(--sp-4);
+}
+.property-card__price {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+}
+.property-card__more {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent-dark);
+}
+
+/* ============================================================
+   AuthLayout — split inmersivo (panel de marca + formulario)
+   ============================================================ */
+.auth {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    background: var(--color-bg);
+}
+
+/* Panel lateral */
+.auth__aside {
+    position: relative;
+    background: var(--color-graphite);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+.auth__aside--image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.55), rgba(10,10,10,0.78));
+}
+.auth__aside-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--sp-12);
+    padding: var(--sp-16) clamp(2rem, 1rem + 4vw, 5rem);
+    width: 100%;
+}
+.auth__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3);
+    color: #fff;
+    align-self: flex-start;
+}
+.auth__brand:hover { color: #fff; }
+.auth__brand .lgea-brand__mark {
+    background: var(--color-accent);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+.auth__brand-name {
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: var(--fs-base);
+}
+.auth__brand-name small {
+    margin-left: var(--sp-2);
+    color: var(--color-accent);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    font-size: var(--fs-xs);
+}
+.auth__aside-tagline {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    max-width: 18ch;
+}
+
+/* Columna de formulario */
+.auth__main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--sp-16) var(--sp-8);
+}
+.auth__panel {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+}
+.auth__header { display: flex; flex-direction: column; gap: var(--sp-4); }
+.auth__title {
+    font-size: var(--fs-4xl);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 0;
+}
+.auth__subtitle { margin: 0; font-size: var(--fs-base); }
+
+/* Formularios dentro del panel */
+.auth__form { display: flex; flex-direction: column; gap: var(--sp-5); }
+.auth__form .field,
+.auth__form label.field { gap: var(--sp-2); }
+.auth__form .btn { width: 100%; margin-top: var(--sp-2); }
+
+.auth__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: var(--color-muted);
+}
+.auth__meta a, .auth__link {
+    color: var(--color-accent-dark);
+    font-weight: 600;
+    cursor: pointer;
+}
+.auth__meta a:hover, .auth__link:hover { color: var(--color-ink); }
+
+.auth__message {
+    margin: 0;
+    padding: var(--sp-3) var(--sp-4);
+    border-left: 2px solid var(--color-accent);
+    background: var(--color-surface);
+    font-size: var(--fs-sm);
+    color: var(--color-text-soft);
+}
+
+.auth__back {
+    margin-top: var(--sp-2);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+}
+.auth__back:hover { color: var(--color-ink); }
+
+/* Responsive: el panel lateral se oculta y el formulario ocupa todo */
+@media (max-width: 860px) {
+    .auth { grid-template-columns: 1fr; }
+    .auth__aside { display: none; }
+    .auth__main { padding: var(--sp-12) var(--sp-5) var(--sp-16); align-items: flex-start; }
+    .auth__panel { margin-top: var(--sp-8); }
+}

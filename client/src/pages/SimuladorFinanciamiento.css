@@ -1,0 +1,184 @@
+/* ============================================================
+   Simulador de financiamiento — coherente con el design system
+   ============================================================ */
+.simulador-container {
+    max-width: 760px;
+    margin: var(--sp-10) auto var(--sp-24);
+    padding: var(--sp-10);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow);
+    color: var(--color-text);
+}
+
+.simulador-header { margin-bottom: var(--sp-8); }
+.simulador-eyebrow {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--sp-2);
+}
+.simulador-titulo {
+    font-size: var(--fs-3xl);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* Resumen de la propiedad */
+.simulador-resumen {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--sp-6);
+    padding: var(--sp-5) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--sp-8);
+}
+.simulador-resumen > div { display: flex; flex-direction: column; gap: 4px; }
+.simulador-resumen__lbl {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+}
+.simulador-resumen__val { font-size: var(--fs-lg); font-weight: 600; }
+.simulador-resumen > div:last-child { text-align: right; }
+
+/* Formulario */
+.simulador-form { display: flex; flex-direction: column; gap: var(--sp-5); }
+.campo { display: flex; flex-direction: column; gap: var(--sp-2); }
+.campo label {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--color-text-soft);
+}
+.campo input,
+.campo select {
+    width: 100%;
+    max-width: 280px;
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-base);
+    font-family: inherit;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-soft);
+    background: var(--color-bg);
+}
+
+.btn-calcular {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    align-self: flex-start;
+    margin-top: var(--sp-2);
+    padding: var(--sp-4) var(--sp-8);
+    background: var(--color-ink);
+    color: var(--color-bg);
+    border: 1px solid var(--color-ink);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+}
+.btn-calcular:hover:not(:disabled) { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-ink); }
+.btn-calcular:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.simulador-error {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin: 0;
+    padding: var(--sp-3) var(--sp-4);
+    background: #fbeae8;
+    border-left: 3px solid var(--color-danger);
+    color: var(--color-danger);
+    font-size: var(--fs-sm);
+}
+
+/* Resultado */
+.simulador-resultado {
+    margin-top: var(--sp-8);
+    border: 1px solid var(--color-border);
+}
+.simulador-cuota {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-8);
+    background: var(--color-graphite);
+    color: #fff;
+    text-align: center;
+}
+.simulador-cuota__lbl {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-concrete);
+}
+.simulador-cuota__val {
+    font-family: var(--font-display);
+    font-size: var(--fs-5xl);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-accent);
+}
+.simulador-cuota__nota { font-size: var(--fs-sm); color: var(--color-concrete); }
+
+.simulador-desglose { margin: 0; }
+.simulador-desglose > div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding: var(--sp-4) var(--sp-6);
+    border-bottom: 1px solid var(--color-border);
+}
+.simulador-desglose > div:last-child { border-bottom: none; }
+.simulador-desglose dt { color: var(--color-muted); font-size: var(--fs-sm); }
+.simulador-desglose dd { margin: 0; font-weight: 600; font-size: var(--fs-base); }
+
+/* Nota y volver */
+.nota-tarifario {
+    margin: var(--sp-8) 0 0;
+    font-size: var(--fs-xs);
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 60ch;
+}
+.nota-tarifario a { color: var(--color-accent-dark); text-decoration: underline; }
+.nota-tarifario a:hover { color: var(--color-ink); }
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-top: var(--sp-6);
+    padding: var(--sp-3) var(--sp-6);
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border-strong);
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.btn-volver:hover { background: var(--color-ink); color: var(--color-bg); border-color: var(--color-ink); }
+
+@media (max-width: 600px) {
+    .simulador-container { padding: var(--sp-6); margin: var(--sp-6) auto var(--sp-16); }
+    .campo input, .campo select { max-width: 100%; }
+    .simulador-cuota__val { font-size: var(--fs-4xl); }
+}

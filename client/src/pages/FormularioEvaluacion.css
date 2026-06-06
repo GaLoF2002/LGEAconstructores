@@ -1,0 +1,249 @@
+.form-evaluacion-container {
+    background-color: #f8f9fa; /* Un gris claro suave */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.cliente-main{
+    margin-bottom: 50px;
+}
+
+.detalle-prop-container {
+    margin-bottom: 150px;
+}
+
+.form-evaluacion-container h2 {
+    color: #094684; /* Un azul primario para el título */
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.paso {
+    margin-bottom: 25px;
+    margin-left: 125px;
+}
+
+.pregunta {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.opciones-compra {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.boton-opcion {
+    background-color: #094684;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-opcion.credito {
+    background-color: #28a745; /* Un verde para la opción de crédito */
+}
+
+.boton-opcion:hover {
+    background-color: #0056b3;
+}
+
+.selector-tiempo {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #495057;
+    background-color: #fff;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23495057" viewBox="0 0 4 5"><path d="M2 0L0 2h4L2 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 97%;
+    background-position-y: center;
+}
+
+.selector-tiempo:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.boton-siguiente {
+    background-color: #6c757d; /* Un gris secundario para el botón siguiente */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-siguiente:disabled {
+    background-color: #e0e0e0;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.boton-siguiente:hover:enabled {
+    background-color: #5a6268;
+}
+
+.subtitulo {
+    color: #094684;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.etiqueta {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.input-field,
+.selector-buro {
+    width: 600px;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #495057;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.selector-buro {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23495057" viewBox="0 0 4 5"><path d="M2 0L0 2h4L2 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 97%;
+    background-position-y: center;
+}
+
+.input-field:focus,
+.selector-buro:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input-archivo {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #495057;
+    box-sizing: border-box;
+}
+
+.boton-enviar {
+    background-color: #28a745; /* Un verde para el botón de enviar */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-enviar:hover {
+    background-color: #1e7e34;
+}
+
+.mensaje-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mensaje-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.campo.archivo {
+    margin-top: 25px;
+}
+
+@media (max-width: 380px) {
+    .form-evaluacion-container {
+        padding: 20px 15px; /* Reduce padding for smaller screens */
+    }
+
+    .paso {
+        margin-left: 0; /* Ensure no left margin */
+        padding: 0 10px; /* Adjust padding for content inside steps */
+    }
+
+    .opciones-compra {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+
+    .boton-opcion,
+    .boton-siguiente,
+    .boton-enviar {
+        width: 100%; /* Ensure all buttons take full width */
+        padding: 10px 15px; /* Adjust button padding */
+    }
+
+    .input-field,
+    .selector-tiempo,
+    .selector-buro,
+    .selector-entrada,
+    .selector-inmueble,
+    .input-archivo {
+        width: 100%; /* Ensure all input fields take full width */
+        padding: 10px; /* Adjust input padding */
+        font-size: 15px; /* Slightly reduce font size for inputs */
+    }
+
+    .form-evaluacion-container h2 {
+        font-size: 1.5em; /* Adjust heading size */
+        margin-bottom: 20px;
+    }
+
+    .subtitulo {
+        font-size: 1.1em; /* Adjust subtitle size */
+        margin-bottom: 15px;
+    }
+
+    .pregunta,
+    .etiqueta {
+        font-size: 1em; /* Adjust text size */
+    }
+}

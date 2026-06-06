@@ -1,0 +1,193 @@
+/* ============================================================
+   Crear / Editar propiedad — formulario premium (admin & vendedor)
+   ============================================================ */
+.crear-propiedad-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: var(--sp-6) var(--sp-4) var(--sp-16);
+}
+
+.crear-propiedad-form-container {
+    width: 100%;
+    max-width: 880px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow);
+    padding: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+}
+
+.crear-propiedad-form-container h2 {
+    font-size: var(--fs-2xl);
+    letter-spacing: -0.01em;
+    margin: 0;
+    padding-bottom: var(--sp-4);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Rejilla del formulario */
+.crear-propiedad-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5) var(--sp-6);
+}
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    min-width: 0;
+}
+.form-full {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    min-width: 0;
+}
+
+/* Etiquetas */
+.crear-propiedad-form label {
+    display: block;
+    margin-bottom: var(--sp-2);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+}
+
+/* Inputs y selects */
+.input-box,
+.input-long {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--color-surface);
+    color: var(--color-text);
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-base);
+    font-family: inherit;
+    border: 1px solid var(--color-border-strong);
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.input-long { min-height: 120px; resize: vertical; }
+.input-box:focus,
+.input-long:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-soft);
+    background: var(--color-bg);
+}
+
+/* Subida de imágenes — zona estilo dropzone */
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    padding: var(--sp-5);
+    border: 1px dashed var(--color-border-strong);
+    background: var(--color-surface);
+}
+.file-label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+}
+.choose-files {
+    font-size: var(--fs-sm);
+    color: var(--color-text-soft);
+    cursor: pointer;
+}
+.choose-files::-webkit-file-upload-button,
+.choose-files::file-selector-button {
+    background: var(--color-ink);
+    color: #fff;
+    border: none;
+    padding: var(--sp-2) var(--sp-4);
+    margin-right: var(--sp-4);
+    font-size: var(--fs-sm);
+    cursor: pointer;
+    transition: background var(--transition);
+}
+.choose-files::-webkit-file-upload-button:hover { background: var(--color-accent-dark); }
+
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+}
+.preview-wrapper {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+}
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+}
+.remove-image-button {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    background: var(--color-ink);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+.remove-image-button:hover { background: var(--color-danger); }
+
+/* Botones */
+.button-group {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: var(--sp-3);
+    padding-top: var(--sp-2);
+}
+.crear-propiedad-form button {
+    flex: 1;
+    padding: var(--sp-4) var(--sp-6);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--color-ink);
+    background: var(--color-ink);
+    color: #fff;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.crear-propiedad-form button:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-ink);
+}
+.crear-propiedad-form button[type="button"] {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border-strong);
+}
+.crear-propiedad-form button[type="button"]:hover {
+    background: var(--color-surface-alt);
+    color: var(--color-text);
+    border-color: var(--color-border-strong);
+}
+
+@media (max-width: 640px) {
+    .crear-propiedad-form { grid-template-columns: 1fr; }
+    .button-group { flex-direction: column; }
+}
