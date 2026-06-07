@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "build": "npm install --legacy-peer-deps && npm --prefix ../client install && npm --prefix ../client run build",
+    "build": "npm install --legacy-peer-deps && npm --prefix ../client install --include=dev && npm --prefix ../client run build",
     "bootstrap-admin": "node scripts/bootstrapAdmin.js"
   },
   "dependencies": {
