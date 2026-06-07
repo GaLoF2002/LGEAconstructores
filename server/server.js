@@ -46,8 +46,24 @@ app.use(pinoHttp({
 }));
 
 // Headers de seguridad. crossOriginResourcePolicy relajado porque las imágenes vienen de Cloudinary.
+// CSP explícita: el default de helmet bloquea img-src externo, así que habilitamos Cloudinary.
 app.use(helmet({
-    crossOriginResourcePolicy: { policy: 'cross-origin' }
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+    contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+            defaultSrc: ["'self'"],
+            baseUri: ["'self'"],
+            objectSrc: ["'none'"],
+            scriptSrc: ["'self'"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
+            imgSrc: ["'self'", "data:", "blob:", "https://res.cloudinary.com"],
+            connectSrc: ["'self'"],
+            formAction: ["'self'"],
+            frameAncestors: ["'none'"],
+        }
+    }
 }));
 
 // CORS con whitelist explícita.
