@@ -7,12 +7,13 @@ const REQUIRED = [
     "MONGO_URI",
     "JWT_SECRET",
     "FRONTEND_URL",
-    "GMAIL_USER",
-    "GMAIL_PASS",
     "CLOUDINARY_CLOUD",
     "CLOUDINARY_KEY",
     "CLOUDINARY_SECRET"
 ];
+
+// Opcionales: si faltan, el server arranca igual pero la función queda deshabilitada.
+const OPTIONAL_EMAIL = ["GMAIL_USER", "GMAIL_PASS"];
 
 export function assertEnv() {
     const missing = REQUIRED.filter((k) => !process.env[k]);
@@ -23,5 +24,8 @@ export function assertEnv() {
     if (process.env.JWT_SECRET.length < 32) {
         console.error("✗ JWT_SECRET debe tener al menos 32 caracteres.");
         process.exit(1);
+    }
+    if (OPTIONAL_EMAIL.some((k) => !process.env[k])) {
+        console.warn("⚠️  GMAIL_USER/GMAIL_PASS no configurados: 'Recuperar contraseña' no enviará correos.");
     }
 }

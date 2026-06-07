@@ -40,8 +40,8 @@ El archivo `.env` **no** se sube (está en `.gitignore`), así que define TODO e
 | `MONGO_URI` | tu connection string de MongoDB Atlas |
 | `JWT_SECRET` | secreto largo (**mínimo 32 caracteres**) |
 | `FRONTEND_URL` | la URL pública de tu app en Render, ej. `https://lgea.onrender.com` |
-| `GMAIL_USER` | correo Gmail (para recuperación de contraseña) |
-| `GMAIL_PASS` | app password de Gmail |
+| `GMAIL_USER` | **(opcional)** correo Gmail para recuperación de contraseña. Si se omite, la app arranca igual; solo no se envían esos correos. |
+| `GMAIL_PASS` | **(opcional)** app password de Gmail (16 chars). |
 | `CLOUDINARY_CLOUD` | cloud name **real** (coherente con key/secret) |
 | `CLOUDINARY_KEY` | api key real |
 | `CLOUDINARY_SECRET` | api secret real |
